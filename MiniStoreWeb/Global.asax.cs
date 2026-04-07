@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace MiniStoreWeb
 {
@@ -13,9 +9,29 @@ namespace MiniStoreWeb
     {
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
+            // Keep the default startup registrations
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Your custom logic
+            Application["AppStartTime"] = DateTime.Now;
+            Application["VisitorCount"] = 0;
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Application.Lock();
+
+            int visitorCount = 0;
+            if (Application["VisitorCount"] != null)
+            {
+                visitorCount = (int)Application["VisitorCount"];
+            }
+
+            Application["VisitorCount"] = visitorCount + 1;
+            Application.UnLock();
+
+            Session["SessionStartTime"] = DateTime.Now;
         }
     }
 }

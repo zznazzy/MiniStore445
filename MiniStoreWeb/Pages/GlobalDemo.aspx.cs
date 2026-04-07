@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace MiniStoreWeb.Pages
 {
@@ -11,7 +6,15 @@ namespace MiniStoreWeb.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblAppStartTime.Text = FormatValue(Application["AppStartTime"]);
+            lblVisitorCount.Text = FormatValue(Application["VisitorCount"]);
+            lblSessionStartTime.Text = FormatValue(Session["SessionStartTime"]);
+            lblSessionId.Text = Session.SessionID;
+        }
 
+        private string FormatValue(object value)
+        {
+            return value == null ? "(not set)" : value.ToString();
         }
     }
 }
