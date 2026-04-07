@@ -112,7 +112,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -134,6 +133,18 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bookmark.png" />
+    <Content Include="Images\desklamp.png" />
+    <Content Include="Images\highlighters.png" />
+    <Content Include="Images\hoodie.png" />
+    <Content Include="Images\keychain.png" />
+    <Content Include="Images\mug.png" />
+    <Content Include="Images\notebook.png" />
+    <Content Include="Images\pens.png" />
+    <Content Include="Images\phonestand.png" />
+    <Content Include="Images\stickers.png" />
+    <Content Include="Images\totebag.png" />
+    <Content Include="Images\waterbottle.png" />
     <Content Include="Pages\BellaTryIt.aspx" />
     <Content Include="Pages\GlobalDemo.aspx" />
     <Content Include="Pages\Member.aspx" />
@@ -221,13 +232,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\FeaturedProducts.ascx.cs">
       <DependentUpon>FeaturedProducts.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,6 +317,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\BellaServiceReference\" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
