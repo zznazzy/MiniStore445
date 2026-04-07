@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AdrianHashLib/AdrianHashLib.csproj" />
+  <Project Path="AdrianStoreService/AdrianStoreService.csproj" />
+  <Project Path="BellaStoreService/BellaStoreService.csproj" />
+  <Project Path="MiniStoreWeb/MiniStoreWeb.csproj" />
+</Solution>
