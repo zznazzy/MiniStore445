@@ -1,124 +1,163 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MiniStoreWeb._Default" %>
+﻿<%@ Page Title="MiniStore445" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MiniStoreWeb._Default" %>
 <%@ Register Src="~/Controls/FeaturedProducts.ascx" TagPrefix="uc" TagName="FeaturedProducts" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <style>
+        .hero-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9f2ff);
+            border-radius: 22px;
+            padding: 42px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1f1f1f;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 22px;
+            max-width: 820px;
+            line-height: 1.6;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 18px;
+            color: #1f1f1f;
+        }
+
+        .soft-list li {
+            margin-bottom: 10px;
+        }
+
+        .browse-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+        }
+
+        .browse-card h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .browse-subtext {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .browse-controls .form-control {
+            border-radius: 12px;
+            min-height: 44px;
+        }
+
+        .browse-controls .btn {
+            min-height: 44px;
+            border-radius: 12px;
+            width: 100%;
+        }
+
+        .store-pill {
+            display: inline-block;
+            background: #eef4ff;
+            color: #2f5fa7;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+    </style>
+
     <main>
-        <section class="row" aria-labelledby="storeTitle">
-            <div class="col-md-12">
-                <h1 id="storeTitle">MiniStore445</h1>
-                <p class="lead">
-                    MiniStore445 is a mini online store web application for CSE 445/598.
-                </p>
-                <p>
-                    This site demonstrates a public landing page, a user control, a Global.asax event handler,
-                    and a web service with a TryIt page. Later, the project will expand into Member and Staff pages
-                    with authentication and XML-backed data storage.
-                </p>
+        <section class="hero-box">
+            <span class="store-pill">Everyday essentials, thoughtfully picked</span>
+            <h1 class="hero-title">MiniStore445</h1>
+            <p class="hero-subtitle">
+                Simple, useful items for study, work, and everyday life. Browse a curated collection,
+                explore featured picks, and quickly find what you need.
+            </p>
+        </section>
+
+        <section id="browseProducts" class="browse-card">
+            <h2>Browse Products</h2>
+            <p class="browse-subtext">
+                Search by name or filter by category to explore the collection.
+            </p>
+
+            <div class="row browse-controls">
+                <div class="col-md-5">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search products..." />
+                </div>
+
+                <div class="col-md-4">
+                    <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control">
+                        <asp:ListItem Text="All Categories" Value="" />
+                        <asp:ListItem Text="Stationery" Value="Stationery" />
+                        <asp:ListItem Text="Accessories" Value="Accessories" />
+                        <asp:ListItem Text="Drinkware" Value="Drinkware" />
+                        <asp:ListItem Text="Clothing" Value="Clothing" />
+                        <asp:ListItem Text="Study Tools" Value="Study Tools" />
+                    </asp:DropDownList>
+                </div>
+
+                <div class="col-md-3">
+                    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                </div>
             </div>
         </section>
 
-        <section class="row">
-            <div class="col-md-4">
-                <h2>Navigation</h2>
-                <p>
-                    <asp:HyperLink ID="lnkMember" runat="server" NavigateUrl="~/Pages/Member.aspx" Text="Member Page" />
-                </p>
-                <p>
-                    <asp:HyperLink ID="lnkStaff" runat="server" NavigateUrl="~/Pages/Staff.aspx" Text="Staff Page" />
-                </p>
-                <p>
-                    <asp:HyperLink ID="lnkBellaTryIt" runat="server" NavigateUrl="~/Pages/BellaTryIt.aspx" Text="Bella TryIt Page" />
-                </p>
-                <p>
-                    <asp:HyperLink ID="lnkGlobalDemo" runat="server" NavigateUrl="~/Pages/GlobalDemo.aspx" Text="Global Demo Page" />
-                </p>
-            </div>
-
-            <div class="col-md-4">
-                <h2>How to Test</h2>
-                <ol>
-                    <li>Scroll down to verify that the featured products user control loads products from XML.</li>
-                    <li>Open the <strong>Global Demo Page</strong> to verify the app start time and visitor count.</li>
-                    <li>Open the <strong>Bella TryIt Page</strong> and test coupon codes such as <code>SAVE10</code>, <code>STUDENT15</code>, and <code>VIP20</code>.</li>
-                    <li>Use the Member and Staff links to verify that placeholder pages are present.</li>
-                </ol>
-            </div>
-
-            <div class="col-md-4">
-                <h2>Test Cases</h2>
-                <ul>
-                    <li>Subtotal: <code>100</code>, Coupon: <code>SAVE10</code> → Total should be <code>90.00</code></li>
-                    <li>Subtotal: <code>100</code>, Coupon: <code>STUDENT15</code> → Total should be <code>85.00</code></li>
-                    <li>Subtotal: <code>100</code>, Coupon: <code>VIP20</code> → Total should be <code>80.00</code></li>
-                    <li>Subtotal: <code>100</code>, Coupon: blank or invalid → Total should remain <code>100.00</code></li>
-                </ul>
-            </div>
+        <section>
+            <h2 class="section-title">Featured Products</h2>
+            <uc:FeaturedProducts ID="FeaturedProducts1" runat="server" />
         </section>
 
-        <section class="row">
-            <div class="col-md-12">
-                <h2>Application and Components Summary Table</h2>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Provider</th>
-                            <th>Component Type</th>
-                            <th>Operation / Item</th>
-                            <th>Parameters / Inputs</th>
-                            <th>Return Type / Output</th>
-                            <th>Description</th>
-                            <th>TryIt / Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Bella Rayner</td>
-                            <td>ASPX page + server controls</td>
-                            <td>Default.aspx</td>
-                            <td>None</td>
-                            <td>Page</td>
-                            <td>Public landing page with navigation, testing instructions, and the summary table.</td>
-                            <td><a href="<%= ResolveUrl("~/Default.aspx") %>">Current page</a></td>
-                        </tr>
-                        <tr>
-                            <td>Bella Rayner</td>
-                            <td>User control</td>
-                            <td>FeaturedProducts.ascx</td>
-                            <td>Reads <code>Products.xml</code></td>
-                            <td>Rendered product cards</td>
-                            <td>Displays featured products loaded from XML.</td>
-                            <td><a href="#featuredProductsSection">See below</a></td>
-                        </tr>
-                        <tr>
-                            <td>Bella Rayner</td>
-                            <td>Global.asax event handler</td>
-                            <td>Application_Start / Session_Start</td>
-                            <td>None</td>
-                            <td>Application values / Session values</td>
-                            <td>Stores app start time and increments a visitor count.</td>
-                            <td><a href="<%= ResolveUrl("~/Pages/GlobalDemo.aspx") %>">Global Demo</a></td>
-                        </tr>
-                        <tr>
-                            <td>Bella Rayner</td>
-                            <td>WCF service</td>
-                            <td>GetDiscountedTotal / GetCouponDescription</td>
-                            <td>subtotal: decimal, couponCode: string</td>
-                            <td>decimal / string</td>
-                            <td>Calculates discounted totals for sample coupon codes.</td>
-                            <td><a href="<%= ResolveUrl("~/Pages/BellaTryIt.aspx") %>">Bella TryIt</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>
-                    Adrian's components will be added to the integrated team version as they are completed.
-                </p>
+        <section class="row" style="margin-top: 30px;">
+            <div class="col-md-6">
+                <div class="info-card">
+                    <h2>About MiniStore</h2>
+                    <p>
+                        MiniStore is a lightweight online storefront built around a clean browsing experience.
+                        The collection focuses on practical products that fit into everyday routines.
+                    </p>
+                    <p>
+                        From stationery and accessories to simple lifestyle items, everything is designed to feel easy to browse and pleasant to use.
+                    </p>
+                </div>
             </div>
-        </section>
 
-        <section class="row">
-            <div class="col-md-12">
-                <uc:FeaturedProducts ID="FeaturedProducts1" runat="server" />
+            <div class="col-md-6">
+                <div class="info-card">
+                    <h2>Why Shop Here?</h2>
+                    <ul class="soft-list">
+                        <li>Clean, uncluttered browsing experience</li>
+                        <li>Simple category filtering and product search</li>
+                        <li>Curated collection of useful everyday products</li>
+                        <li>Featured picks highlighted on the home page</li>
+                        <li>Quick access to store tools and pages</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
