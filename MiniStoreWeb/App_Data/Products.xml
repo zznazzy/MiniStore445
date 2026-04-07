@@ -1,3 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Products>
+	<Product>
+		<Id>1</Id>
+		<Name>Notebook</Name>
+		<Category>Stationery</Category>
+		<Price>4.99</Price>
+		<Description>College-ruled notebook for class notes.</Description>
+		<InStock>true</InStock>
+		<Featured>true</Featured>
+	</Product>
+	<Product>
+		<Id>2</Id>
+		<Name>Pen Set</Name>
+		<Category>Stationery</Category>
+		<Price>6.49</Price>
+		<Description>Set of five smooth-writing gel pens.</Description>
+		<InStock>true</InStock>
+		<Featured>true</Featured>
+	</Product>
+	<Product>
+		<Id>3</Id>
+		<Name>Sticker Pack</Name>
+		<Category>Accessories</Category>
+		<Price>2.99</Price>
+		<Description>Decorative sticker pack for laptops and notebooks.</Description>
+		<InStock>true</InStock>
+		<Featured>false</Featured>
+	</Product>
+	<Product>
+		<Id>4</Id>
+		<Name>Mug</Name>
+		<Category>Drinkware</Category>
+		<Price>8.99</Price>
+		<Description>MiniStore ceramic mug.</Description>
+		<InStock>true</InStock>
+		<Featured>true</Featured>
+	</Product>
+	<Product>
+		<Id>5</Id>
+		<Name>Tote Bag</Name>
+		<Category>Accessories</Category>
+		<Price>12.50</Price>
+		<Description>Reusable canvas tote bag.</Description>
+		<InStock>true</InStock>
+		<Featured>true</Featured>
+	</Product>
+	<Product>
+		<Id>6</Id>
+		<Name>Hoodie</Name>
+		<Category>Clothing</Category>
+		<Price>29.99</Price>
+		<Description>Comfortable hoodie with MiniStore logo.</Description>
+		<InStock>false</InStock>
+		<Featured>false</Featured>
+	</Product>
+	<Product>
+		<Id>7</Id>
+		<Name>Keychain</Name>
+		<Category>Accessories</Category>
+		<Price>3.50</Price>
+		<Description>MiniStore keychain.</Description>
+		<InStock>true</InStock>
+		<Featured>false</Featured>
+	</Product>
+	<Product>
+		<Id>8</Id>
+		<Name>Bookmark</Name>
+		<Category>Stationery</Category>
+		<Price>1.99</Price>
+		<Description>Magnetic bookmark for textbooks and novels.</Description>
+		<InStock>true</InStock>
+		<Featured>false</Featured>
+	</Product>
 </Products>
