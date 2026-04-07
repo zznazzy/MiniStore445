@@ -1,32 +1,50 @@
+
 # MiniStore445 Contribution Plan
 
-## Team Members
+## Team
 
-- **Bella Rayner**
-- **Adrian**
+* Bella Rayner
+* Adrian Simon
 
-## App Concept
+## Project Overview
 
-A **mini online store** with sample products.
+MiniStore445 is a lightweight ASP.NET Web Forms application that simulates a small online store.
 
-The app will start as a public-facing store demo for **Assignment 5** and expand into a member/staff store system for **Assignment 6**.
+Assignment 5 focuses on:
 
-## Main Division of Labor
+* public-facing functionality
+* component implementation
+* service integration
+
+Assignment 6 builds on this with:
+
+* authentication
+* protected pages
+* full system integration
+
+---
+
+## Responsibilities
 
 ### Bella
-- `Default.aspx`
-- Service Directory / TryIt page
-- `Global.asax` event handler
-- User control
-- One web service
+
+* Core web app structure and UI
+* Featured products pipeline (XML → UI)
+* Global state handling (`Global.asax`)
+* Bella web service + TryIt page
+* Navigation + baseline UX
 
 ### Adrian
-- DLL library for hashing or encryption/decryption
-- Cookie / session state component
-- One web service
-- Integration help
 
-## Planned Project Structure
+* Supporting backend components
+* Security/utilities (DLL)
+* Session/cookie behavior
+* Adrian web service + demo surface
+* Integration + extension work
+
+---
+
+## Project Structure
 
 ```text
 MiniStore445/
@@ -62,164 +80,136 @@ MiniStore445/
   docs/
   submission/
 ```
-## Bella Deliverables
 
-### 1. `Default.aspx`
-- public landing page
-- store description
-- testing instructions
-- buttons or links to **Member** and **Staff** pages
-- service directory table
-- links to TryIt pages
+---
 
-### 2. User Control
-- `FeaturedProducts.ascx`
-- displays a few sample products from `Products.xml`
+## Current State (Post–Bella A5)
 
-### 3. `Global.asax`
-- `Application_Start` stores app start time
-- `Session_Start` increments visitor count
+The application currently includes:
 
-### 4. Global Demo Page
-- shows app start time
-- shows visitor count
-- gives a visible way to test the `Global.asax` logic
+* functional landing page (`Default.aspx`)
+* product display via XML-backed user control
+* product images + basic styling
+* search and category filtering
+* working Global.asax demo page
+* Bella service + TryIt page
+* navigation across all pages
+* placeholder Member/Staff pages
+* components summary page
 
-### 5. Bella Web Service
+This is considered the **baseline build**.
 
-Possible idea:
-- **discount calculator service**
+---
 
-or
+## Adrian Scope (Assignment 5)
 
-- **product recommendation/filter service**
+Adrian’s work should introduce:
 
-### 6. Bella TryIt Page
-- input boxes
-- call Bella service
-- show output clearly
+### DLL (required)
 
-## Adrian Deliverables
+* hashing or encryption/decryption helper
+* intended for later use in authentication
 
-### 1. DLL Library
-- hash or encryption/decryption helper for passwords
+### Session / Cookie Logic
 
-### 2. Cookie / Session Component
+* lightweight state usage inside `MiniStoreWeb`
+* examples:
 
-Possible uses:
-- save username
-- save cart count
-- save recent product view
+  * cart count
+  * remembered user
+  * recent product tracking
 
-### 3. Adrian Web Service
+### Web Service
 
-Possible idea:
-- **shipping estimator**
+* independent service with clear functionality
+  (shipping, tax, filtering, etc.)
 
-or
+### Demo Surface
 
-- **tax estimator**
+* visible way to interact with the above
+  (page, button, or integration point)
 
-or
+---
 
-- **category search helper**
+## Optional Enhancements (Adrian-owned)
 
-### 4. Adrian TryIt Hook
-- visible button or page that proves his DLL and cookie/session work
+If time allows, Adrian can extend the app with:
 
-## Shared Later for Assignment 6
+* basic cart system (session-based)
+* additional UI polish
+* improved layout or styling consistency
+* WebStrar deployment setup
+* small UX improvements that don’t break structure
 
-- Member page
-- Staff page
-- Forms authentication and authorization
-- XML account storage
-- product management
-- final integration
-- full deployment
+---
 
-## Suggested File Ownership
+## Ownership
 
 ### Bella-owned
-- `src/MiniStoreWeb/Default.aspx`
-- `src/MiniStoreWeb/Default.aspx.cs`
-- `src/MiniStoreWeb/Global.asax`
-- `src/MiniStoreWeb/Controls/FeaturedProducts.ascx`
-- `src/MiniStoreWeb/Controls/FeaturedProducts.ascx.cs`
-- `src/MiniStoreWeb/Pages/BellaTryIt.aspx`
-- `src/MiniStoreWeb/Pages/BellaTryIt.aspx.cs`
-- `src/MiniStoreWeb/Pages/GlobalDemo.aspx`
-- `src/MiniStoreWeb/Pages/GlobalDemo.aspx.cs`
-- `src/BellaStoreService/`
+
+* `MiniStoreWeb/Default.aspx`
+* `Global.asax`
+* `FeaturedProducts` control
+* Bella service + TryIt
+* base UI + navigation
 
 ### Adrian-owned
-- `src/AdrianHashLib/`
-- `src/AdrianStoreService/`
-- cookie/session code inside `MiniStoreWeb`
 
-### Shared later
-- `Member.aspx`
-- `Staff.aspx`
-- auth flow
-- XML wiring
-- summary table
-- deployment packaging
+* `AdrianHashLib/`
+* `AdrianStoreService/`
+* session/cookie logic
+* any cart implementation
 
-## Initial Product Data
+### Shared (Assignment 6)
 
-`Products.xml` will contain a small set of fake sample products such as:
-- notebook
-- pen set
-- sticker pack
-- mug
-- tote bag
-- hoodie
-- keychain
-- bookmark
+* authentication flow
+* Member/Staff functionality
+* XML account handling
+* deployment packaging
+* final integration
+
+---
 
 ## Workflow
 
-1. Bella creates the base solution and repo structure.
-2. Bella commits the initial skeleton.
-3. Adrian clones the repo and creates his branch.
-4. Bella works in her branch.
-5. Adrian works in his branch.
-6. Merge only after code compiles and runs.
+* work in separate branches
+* keep `main` stable and buildable
+* merge only when features are working
+* avoid overlapping edits unless coordinated
 
-## Branch Names
+Suggested branches:
 
-- `main`
-- `bella-default-global-usercontrol-service`
-- `adrian-dll-cookie-service`
+* `bella-core`
+* `adrian-services`
 
-## Rules
+---
 
-- `main` should always compile
-- do not commit `.vs`, `bin`, `obj`, `packages`, or user-specific files
-- keep component ownership clear
-- do not hardcode deployment URLs
-- use relative links where possible
+## Constraints
+
+* no hardcoded deployment URLs
+* use relative paths
+* avoid breaking navigation
+* keep project structure intact
+
+---
 
 ## Assignment 5 Target
 
-Bella should have a working:
-- `Default.aspx`
-- user control
-- `Global.asax` demo
-- Bella service with a TryIt page
+A working system where:
 
-Adrian should have a working:
-- DLL
-- cookie/session component
-- Adrian service with a visible demo path
+* core pages load without errors
+* Bella’s components are complete and testable
+* Adrian’s components are independently functional
+* all demo paths are visible and usable
 
-## Assignment 6 Target
+---
 
-Integrated store app with:
-- Default page
-- Member page
-- Staff page
-- Forms auth
-- XML storage
-- full deployment
+## Assignment 6 Direction
 
-  
+Next phase will introduce:
+
+* authentication (Forms Auth)
+* role separation (Member vs Staff)
+* protected routes
+* persistent data via XML
+* full system integration
