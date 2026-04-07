@@ -128,12 +128,8 @@ Adrian’s work should introduce:
 
 * visible way to interact with the above
   (page, button, or integration point)
-
----
-
-## Optional Enhancements (Adrian-owned)
-
-If time allows, Adrian can extend the app with:
+  
+### Other
 
 * basic cart system (session-based)
 * additional UI polish
