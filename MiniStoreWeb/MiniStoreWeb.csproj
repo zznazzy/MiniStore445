@@ -105,6 +105,10 @@
     <Content Include="App_Data\Member.xml" />
     <Content Include="App_Data\Products.xml" />
     <Content Include="App_Data\Staff.xml" />
+    <None Include="Connected Services\AdrianServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Connected Services\BellaServiceReference\Service1.disco" />
     <None Include="Connected Services\BellaServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\BellaServiceReference\configuration.svcinfo" />
@@ -145,6 +149,7 @@
     <Content Include="Images\stickers.png" />
     <Content Include="Images\totebag.png" />
     <Content Include="Images\waterbottle.png" />
+    <Content Include="Pages\AdrianDemo.aspx" />
     <Content Include="Pages\BellaTryIt.aspx" />
     <Content Include="Pages\GlobalDemo.aspx" />
     <Content Include="Pages\Member.aspx" />
@@ -228,6 +233,11 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\AdrianServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BellaServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -249,6 +259,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdrianDemo.aspx.cs">
+      <DependentUpon>AdrianDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdrianDemo.aspx.designer.cs">
+      <DependentUpon>AdrianDemo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BellaTryIt.aspx.cs">
       <DependentUpon>BellaTryIt.aspx</DependentUpon>
@@ -316,9 +333,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AdrianServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\BellaServiceReference\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AdrianHashLib\AdrianHashLib.csproj">
+      <Project>{64FB879E-C64F-438D-82AD-D4C05ABE4B8C}</Project>
+      <Name>AdrianHashLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -4,5 +4,7 @@
   <Project Path="BellaStoreService/BellaStoreService.csproj" />
   <Project Path="MiniStoreWeb/MiniStoreWeb.csproj">
     <BuildDependency Project="BellaStoreService/BellaStoreService.csproj" />
+    <BuildDependency Project="AdrianHashLib/AdrianHashLib.csproj" />
+    <BuildDependency Project="AdrianStoreService/AdrianStoreService.csproj" />
   </Project>
 </Solution>
