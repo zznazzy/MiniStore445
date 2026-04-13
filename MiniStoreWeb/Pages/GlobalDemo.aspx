@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-card">
+        <%-- Visible verification page for Global.asax Application/Session state behavior. --%>
         <h1>Global.asax Demo</h1>
         <p class="lead">
             This page displays visible output from the Global.asax event handlers.
@@ -11,6 +12,7 @@
             It is used to verify that the application start logic and session start logic are working correctly.
         </p>
 
+        <%-- Runtime values read from Application and Session state. --%>
         <table class="table table-bordered table-striped" style="margin-top: 20px;">
             <tr>
                 <th style="width: 260px;">Application Start Time</th>
@@ -36,6 +38,7 @@
             </tr>
         </table>
 
+        <%-- Human-readable checklist of what this demo output confirms. --%>
         <div style="background:#f8f9fa; border-radius:14px; padding:20px; margin-top:20px;">
             <h3>What this page proves</h3>
             <ul>

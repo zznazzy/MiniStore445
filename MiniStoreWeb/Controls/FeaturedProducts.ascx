@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FeaturedProducts.ascx.cs" Inherits="MiniStoreWeb.Controls.FeaturedProducts" %>
 
+<%-- Control-level styling for the featured product grid and cards. --%>
 <style>
     .featured-subtext {
         color: #666;
@@ -113,15 +114,19 @@
 </style>
 
 <div id="featuredProductsSection">
+    <%-- Context text for where data comes from. --%>
     <p class="featured-subtext">A few highlighted products loaded from <code>Products.xml</code>.</p>
 
+    <%-- Displays file/load/no-match status messages from code-behind. --%>
     <asp:Literal ID="litFeaturedMessage" runat="server" />
 
+    <%-- Repeater binds to the filtered featured product list generated in FeaturedProducts.ascx.cs. --%>
     <asp:Repeater ID="rptFeaturedProducts" runat="server">
         <HeaderTemplate>
             <div class="product-grid">
         </HeaderTemplate>
         <ItemTemplate>
+            <%-- Single product card layout. --%>
             <div class="product-card">
                 <div class="product-image-wrap">
                     <img class="product-image"

@@ -3,6 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="page-card">
+        <%-- TryIt page purpose and quick instructions for manual service testing. --%>
         <h1>Bella TryIt Page</h1>
         <p class="lead">
             This page tests Bella's discount calculator web service.
@@ -14,6 +15,7 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-6">
                 <div style="background:#f8f9fa; border-radius:14px; padding:20px;">
+                    <%-- Input form used by btnCalculate_Click (subtotal + coupon). --%>
                     <div class="form-group">
                         <label for="txtSubtotal"><strong>Subtotal</strong></label>
                         <asp:TextBox ID="txtSubtotal" runat="server" CssClass="form-control" />
@@ -30,6 +32,7 @@
                     </div>
 
                     <div style="margin-top: 20px;">
+                        <%-- Calculate triggers service calls; Clear resets all controls. --%>
                         <asp:Button ID="btnCalculate" runat="server" Text="Calculate Discounted Total" CssClass="btn btn-primary" OnClick="btnCalculate_Click" />
                         <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-default" OnClick="btnClear_Click" CausesValidation="false" />
                     </div>
@@ -38,6 +41,7 @@
 
             <div class="col-md-6">
                 <div style="background:#f8f9fa; border-radius:14px; padding:20px;">
+                    <%-- Reference cases for expected service outputs. --%>
                     <h3>Sample Test Cases</h3>
                     <ul>
                         <li><strong>100</strong> + <strong>SAVE10</strong> → 90.00</li>
@@ -51,6 +55,7 @@
 
         <hr />
 
+        <%-- Service response outputs populated by code-behind. --%>
         <h3>Results</h3>
         <table class="table table-bordered">
             <tr>
@@ -64,6 +69,7 @@
         </table>
 
         <p>
+            <%-- Validation and service-error messages surface here. --%>
             <asp:Label ID="lblTryItMessage" runat="server" ForeColor="Red" />
         </p>
 

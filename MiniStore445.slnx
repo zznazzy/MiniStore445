@@ -1,10 +1,10 @@
 <Solution>
-  <Project Path="AdrianHashLib/AdrianHashLib.csproj" />
-  <Project Path="AdrianStoreService/AdrianStoreService.csproj" />
-  <Project Path="BellaStoreService/BellaStoreService.csproj" />
-  <Project Path="MiniStoreWeb/MiniStoreWeb.csproj">
-    <BuildDependency Project="BellaStoreService/BellaStoreService.csproj" />
+  <Project Path="AdrianHashLib/AdrianHashLib.csproj" Id="64fb879e-c64f-438d-82ad-d4c05abe4b8c" />
+  <Project Path="AdrianStoreService/AdrianStoreService.csproj" Id="05756df3-f7e1-4673-b45c-ae3efe50bd40" />
+  <Project Path="BellaStoreService/BellaStoreService.csproj" Id="db2040a8-fda3-4873-9e71-182105327dfb" />
+  <Project Path="MiniStoreWeb/MiniStoreWeb.csproj" Id="5ec31e79-f7e3-4ade-b72d-260f6791f30c">
     <BuildDependency Project="AdrianHashLib/AdrianHashLib.csproj" />
     <BuildDependency Project="AdrianStoreService/AdrianStoreService.csproj" />
+    <BuildDependency Project="BellaStoreService/BellaStoreService.csproj" />
   </Project>
 </Solution>

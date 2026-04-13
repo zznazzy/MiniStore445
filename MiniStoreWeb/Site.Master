@@ -15,6 +15,7 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <%-- Shared master-page styles used by all content pages. --%>
     <style>
         body {
             background-color: #f6f8fb;
@@ -52,6 +53,7 @@
 </head>
 <body>
     <form runat="server">
+        <%-- Core Web Forms script registrations and bundle references. --%>
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -70,6 +72,7 @@
             </Scripts>
         </asp:ScriptManager>
 
+        <%-- Global navigation links for assignment pages/features. --%>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" runat="server" href="~/">MiniStore445</a>
@@ -107,15 +110,18 @@
         </nav>
 
         <div class="container body-content">
+            <%-- Main page content from individual .aspx files is rendered here. --%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
+            <%-- Shared footer visible site-wide. --%>
             <footer class="site-footer">
                 <p>&copy; <%: DateTime.Now.Year %> - MiniStore445</p>
             </footer>
         </div>
     </form>
 
+    <%-- Bootstrap bundle for responsive navigation and shared UI behavior. --%>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>

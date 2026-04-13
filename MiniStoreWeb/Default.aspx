@@ -3,6 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <%-- Page-local styling for the home page hero, browse panel, and info cards. --%>
     <style>
         .hero-box {
             background: linear-gradient(135deg, #f8f9fa, #e9f2ff);
@@ -91,6 +92,7 @@
     </style>
 
     <main>
+        <%-- Intro/branding hero for the landing page. --%>
         <section class="hero-box">
             <span class="store-pill">Everyday essentials, thoughtfully picked</span>
             <h1 class="hero-title">MiniStore445</h1>
@@ -100,6 +102,7 @@
             </p>
         </section>
 
+        <%-- Search + category filters; values are handled in Default.aspx.cs and passed to FeaturedProducts. --%>
         <section id="browseProducts" class="browse-card">
             <h2>Browse Products</h2>
             <p class="browse-subtext">
@@ -128,11 +131,13 @@
             </div>
         </section>
 
+        <%-- FeaturedProducts user control renders filtered featured items from Products.xml. --%>
         <section>
             <h2 class="section-title">Featured Products</h2>
             <uc:FeaturedProducts ID="FeaturedProducts1" runat="server" />
         </section>
 
+        <%-- Supporting informational content shown below the interactive browsing area. --%>
         <section class="row" style="margin-top: 30px;">
             <div class="col-md-6">
                 <div class="info-card">

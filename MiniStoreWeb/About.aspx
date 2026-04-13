@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <%-- Local styling for the assignment summary card container. --%>
     <style>
         .summary-box {
             background: #fff;
@@ -13,6 +14,7 @@
     </style>
 
     <div class="summary-box">
+        <%-- This table documents implemented components and where each can be tested. --%>
         <h1>Application and Components Summary Table</h1>
         <p>
             This page lists the current Assignment 5 components implemented in MiniStore445 and provides
@@ -98,6 +100,7 @@
             </tbody>
         </table>
 
+        <%-- Quick navigation back to the storefront landing page. --%>
         <p>
             <asp:HyperLink ID="lnkBackHome" runat="server" NavigateUrl="~/Default.aspx" Text="Back to Home Page" />
         </p>
