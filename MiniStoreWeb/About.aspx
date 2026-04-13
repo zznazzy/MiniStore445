@@ -69,13 +69,31 @@
                     <td><a href="<%= ResolveUrl("~/Pages/BellaTryIt.aspx") %>">Bella TryIt</a></td>
                 </tr>
                 <tr>
-                    <td>Adrian</td>
-                    <td>Planned components</td>
-                    <td>DLL / Cookie-Session / Service</td>
-                    <td>TBD</td>
-                    <td>TBD</td>
-                    <td>Adrian's Assignment 5 components will be added after implementation.</td>
-                    <td>Coming soon</td>
+                    <td>Adrian Simon</td>
+                    <td>Class library (DLL)</td>
+                    <td>HashUtil.Sha256</td>
+                    <td>plaintext: string</td>
+                    <td>string (64-char hex)</td>
+                    <td>SHA-256 hashing utility for security use.</td>
+                    <td><a href="<%= ResolveUrl("~/Pages/AdrianDemo.aspx") %>">Adrian Demo</a></td>
+                </tr>
+                <tr>
+                    <td>Adrian Simon</td>
+                    <td>WCF service</td>
+                    <td>CalculateShipping</td>
+                    <td>subtotal: decimal, region: string</td>
+                    <td>decimal</td>
+                    <td>Tiered shipping calculator: free over $50, $5 domestic, $15 international.</td>
+                    <td><a href="<%= ResolveUrl("~/Pages/AdrianDemo.aspx") %>">Adrian Demo</a></td>
+                </tr>
+                <tr>
+                    <td>Adrian Simon</td>
+                    <td>Session helper</td>
+                    <td>CartState.GetCartCount / IncrementCart</td>
+                    <td>None</td>
+                    <td>int / void</td>
+                    <td>Session-backed cart counter for state management.</td>
+                    <td><a href="<%= ResolveUrl("~/Pages/AdrianDemo.aspx") %>">Adrian Demo</a></td>
                 </tr>
             </tbody>
         </table>
