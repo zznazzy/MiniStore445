@@ -1,134 +1,135 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Products>
-	<Product>
-		<Id>1</Id>
-		<Name>Notebook</Name>
-		<Category>Stationery</Category>
-		<Price>4.99</Price>
-		<Description>Clean, minimal notebook for everyday notes, lists, and study sessions.</Description>
-		<Image>~/Images/notebook.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>2</Id>
-		<Name>Pen Set</Name>
-		<Category>Stationery</Category>
-		<Price>6.49</Price>
-		<Description>Set of five smooth-writing gel pens in soft assorted colors.</Description>
-		<Image>~/Images/pens.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>3</Id>
-		<Name>Sticker Pack</Name>
-		<Category>Accessories</Category>
-		<Price>2.99</Price>
-		<Description>Decorative sticker pack for laptops, water bottles, and notebooks.</Description>
-		<Image>~/Images/stickers.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>4</Id>
-		<Name>Mug</Name>
-		<Category>Drinkware</Category>
-		<Price>8.99</Price>
-		<Description>Simple ceramic mug for coffee, tea, or whatever gets you through the day.</Description>
-		<Image>~/Images/mug.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>5</Id>
-		<Name>Tote Bag</Name>
-		<Category>Accessories</Category>
-		<Price>12.50</Price>
-		<Description>Reusable canvas tote bag for books, errands, and everyday essentials.</Description>
-		<Image>~/Images/totebag.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>6</Id>
-		<Name>Hoodie</Name>
-		<Category>Clothing</Category>
-		<Price>29.99</Price>
-		<Description>Soft everyday hoodie with a simple, comfortable fit.</Description>
-		<Image>~/Images/hoodie.png</Image>
-		<InStock>false</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>7</Id>
-		<Name>Keychain</Name>
-		<Category>Accessories</Category>
-		<Price>3.50</Price>
-		<Description>Compact keychain for keys, bags, or a little extra personality.</Description>
-		<Image>~/Images/keychain.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>8</Id>
-		<Name>Bookmark</Name>
-		<Category>Stationery</Category>
-		<Price>1.99</Price>
-		<Description>Magnetic bookmark that keeps your place without slipping out.</Description>
-		<Image>~/Images/bookmark.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>9</Id>
-		<Name>Desk Lamp</Name>
-		<Category>Study Tools</Category>
-		<Price>18.75</Price>
-		<Description>Compact desk lamp with adjustable brightness for reading or work.</Description>
-		<Image>~/Images/desklamp.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>10</Id>
-		<Name>Water Bottle</Name>
-		<Category>Drinkware</Category>
-		<Price>14.25</Price>
-		<Description>Durable reusable water bottle with a simple everyday design.</Description>
-		<Image>~/Images/waterbottle.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>11</Id>
-		<Name>Highlighter Set</Name>
-		<Category>Stationery</Category>
-		<Price>5.25</Price>
-		<Description>Pack of pastel highlighters for notes, planners, and textbooks.</Description>
-		<Image>~/Images/highlighters.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
-
-	<Product>
-		<Id>12</Id>
-		<Name>Phone Stand</Name>
-		<Category>Study Tools</Category>
-		<Price>9.50</Price>
-		<Description>Simple foldable phone stand for desks, calls, and watching videos hands-free.</Description>
-		<Image>~/Images/phonestand.png</Image>
-		<InStock>true</InStock>
-		<Featured>true</Featured>
-	</Product>
+  <Product>
+    <Id>1</Id>
+    <Name>Notebook</Name>
+    <Category>Stationery</Category>
+    <Price>4.99</Price>
+    <Description>Clean, minimal notebook for everyday notes, lists, and study sessions.</Description>
+    <Image>https://tinyurl.com/2caj6vzj</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>12</StockQuantity>
+  </Product>
+  <Product>
+    <Id>2</Id>
+    <Name>Pen Set</Name>
+    <Category>Stationery</Category>
+    <Price>6.49</Price>
+    <Description>Set of five smooth-writing gel pens in soft assorted colors.</Description>
+    <Image>https://tinyurl.com/23mukyzl</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>10</StockQuantity>
+  </Product>
+  <Product>
+    <Id>3</Id>
+    <Name>Sticker Pack</Name>
+    <Category>Accessories</Category>
+    <Price>2.99</Price>
+    <Description>Decorative sticker pack for laptops, water bottles, and notebooks.</Description>
+    <Image>https://tinyurl.com/24x74fc9</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>15</StockQuantity>
+  </Product>
+  <Product>
+    <Id>4</Id>
+    <Name>Mug</Name>
+    <Category>Drinkware</Category>
+    <Price>8.99</Price>
+    <Description>Simple ceramic mug for coffee, tea, or whatever gets you through the day.</Description>
+    <Image>https://tinyurl.com/27axj933</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>8</StockQuantity>
+  </Product>
+  <Product>
+    <Id>5</Id>
+    <Name>Tote Bag</Name>
+    <Category>Accessories</Category>
+    <Price>12.50</Price>
+    <Description>Reusable canvas tote bag for books, errands, and everyday essentials.</Description>
+    <Image>https://tinyurl.com/22ad4j5u</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>5</StockQuantity>
+  </Product>
+  <Product>
+    <Id>6</Id>
+    <Name>Hoodie</Name>
+    <Category>Clothing</Category>
+    <Price>29.99</Price>
+    <Description>Soft everyday hoodie with a simple, comfortable fit.</Description>
+    <Image>https://tinyurl.com/2cexcp5f</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>2</StockQuantity>
+  </Product>
+  <Product>
+    <Id>7</Id>
+    <Name>Keychain</Name>
+    <Category>Accessories</Category>
+    <Price>3.50</Price>
+    <Description>Compact keychain for keys, bags, or a little extra personality.</Description>
+    <Image>https://tinyurl.com/22sg6jok</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>9</StockQuantity>
+  </Product>
+  <Product>
+    <Id>8</Id>
+    <Name>Bookmark</Name>
+    <Category>Stationery</Category>
+    <Price>1.99</Price>
+    <Description>Magnetic bookmark that keeps your place without slipping out.</Description>
+    <Image>https://tinyurl.com/29un5dnc</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>14</StockQuantity>
+  </Product>
+  <Product>
+    <Id>9</Id>
+    <Name>Desk Lamp</Name>
+    <Category>Study Tools</Category>
+    <Price>18.75</Price>
+    <Description>Compact desk lamp with adjustable brightness for reading or work.</Description>
+    <Image>https://tinyurl.com/26u82y7t</Image>
+    <InStock>false</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>0</StockQuantity>
+  </Product>
+  <Product>
+    <Id>10</Id>
+    <Name>Water Bottle</Name>
+    <Category>Drinkware</Category>
+    <Price>14.25</Price>
+    <Description>Durable reusable water bottle with a simple everyday design.</Description>
+    <Image>https://tinyurl.com/2b2e39by</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>6</StockQuantity>
+  </Product>
+  <Product>
+    <Id>11</Id>
+    <Name>Highlighter Set</Name>
+    <Category>Stationery</Category>
+    <Price>5.25</Price>
+    <Description>Pack of pastel highlighters for notes, planners, and textbooks.</Description>
+    <Image>https://tinyurl.com/258c84jr</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>7</StockQuantity>
+  </Product>
+  <Product>
+    <Id>12</Id>
+    <Name>Phone Stand</Name>
+    <Category>Study Tools</Category>
+    <Price>9.50</Price>
+    <Description>Simple foldable phone stand for desks, calls, and watching videos hands-free.</Description>
+    <Image>https://tinyurl.com/25bqdv6n</Image>
+    <InStock>true</InStock>
+    <Featured>true</Featured>
+    <StockQuantity>4</StockQuantity>
+  </Product>
 </Products>

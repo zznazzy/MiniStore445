@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MiniStoreWeb.SiteMaster" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MiniStoreWeb.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -8,22 +8,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - MiniStore445</title>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="dns-prefetch" href="//tinyurl.com" />
+    <link rel="preconnect" href="https://tinyurl.com" crossorigin="anonymous" />
+    <link runat="server" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link runat="server" href="~/Content/Site.css" rel="stylesheet" />
+    <link runat="server" href="~/Content/cart-favicon.svg" rel="icon" type="image/svg+xml" />
 
     <%-- Shared master-page styles used by all content pages. --%>
     <style>
         body {
-            background-color: #f6f8fb;
+            background: linear-gradient(180deg, #f3f7fd 0%, #f8fbff 55%, #eef4fb 100%);
+            color: #1f2b3d;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .site-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1040;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+            background: rgba(33, 37, 41, 0.96) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .navbar-brand {
             font-weight: 700;
             letter-spacing: 0.3px;
+            transition: color 0.15s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #84b6ff !important;
+        }
+
+        .brand-shell {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-cart-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .brand-cart-link:hover {
+            color: #fff;
+        }
+
+        .brand-cart-icon {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            transition: transform 0.15s ease;
+        }
+
+        .brand-cart-icon svg {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+
+        .brand-cart-link:hover .brand-cart-icon {
+            transform: scale(1.08);
+        }
+
+        .brand-text {
+            margin-bottom: 0;
         }
 
         .body-content {
@@ -37,9 +93,10 @@
         }
 
         .page-card {
-            background: #ffffff;
+            background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
             border-radius: 18px;
             padding: 28px;
+            border: 1px solid #dde7f4;
             box-shadow: 0 6px 24px rgba(0,0,0,0.08);
             margin-bottom: 24px;
         }
@@ -49,61 +106,222 @@
         .page-card h3 {
             margin-top: 0;
         }
+
+        .auth-nav {
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+        }
+
+        .auth-nav .btn {
+            border-radius: 999px;
+            padding-left: 14px;
+            padding-right: 14px;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            border-radius: 999px;
+            transition: background 0.15s ease, color 0.15s ease;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: #84b6ff !important;
+            background: linear-gradient(180deg, rgba(120, 175, 255, 0.18), rgba(77, 135, 225, 0.14));
+        }
+
+        .nav-badge {
+            color: rgba(255,255,255,0.78);
+            font-size: 0.95rem;
+            margin-right: 4px;
+        }
+
+        .login-status-link {
+            color: #fff !important;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            min-height: 40px;
+        }
+
+        .login-status-link:hover,
+        .login-status-link:focus {
+            color: #84b6ff !important;
+        }
+
+        .cart-count-badge {
+            position: absolute;
+            right: -2px;
+            bottom: -1px;
+            background: #2f80ff;
+            color: #ffffff;
+            border-radius: 999px;
+            min-width: 21px;
+            min-height: 21px;
+            padding: 2px 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(18, 72, 168, 0.35);
+        }
+
+        .cart-count-badge-pulse {
+            animation: cart-badge-pulse 0.55s ease;
+        }
+
+        @keyframes cart-badge-pulse {
+            0% {
+                transform: scale(1);
+            }
+            35% {
+                transform: scale(1.28);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .btn {
+            border-radius: 14px;
+            border-width: 1px;
+            box-shadow: 0 8px 18px rgba(36, 72, 126, 0.10);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease, border-color 0.15s ease;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px rgba(36, 72, 126, 0.16);
+            filter: saturate(1.03);
+        }
+
+        .btn-primary {
+            background-image: linear-gradient(180deg, #61a7ff 0%, #2f80ff 100%);
+            border-color: #78adf7;
+        }
+
+        .btn-outline-secondary {
+            color: #35517d;
+            background-image: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
+            border-color: #d3dff0;
+        }
+
+        .btn-outline-secondary:hover,
+        .btn-outline-secondary:focus {
+            color: #2f80ff;
+            background-image: linear-gradient(180deg, #fbfdff 0%, #e7f0ff 100%);
+            border-color: #b9d2f5;
+        }
+
+        .btn-outline-danger {
+            color: #b65555;
+            background-image: linear-gradient(180deg, #fff9f9 0%, #fff0f0 100%);
+            border-color: #f0cece;
+        }
+
+        .btn-outline-danger:hover,
+        .btn-outline-danger:focus {
+            color: #a64444;
+            background-image: linear-gradient(180deg, #fff8f8 0%, #ffe9e9 100%);
+            border-color: #ebbdbd;
+        }
+
+        .btn-outline-light {
+            color: #ffffff;
+            background-image: linear-gradient(180deg, rgba(255,255,255,0.17), rgba(255,255,255,0.05));
+            border-color: rgba(255,255,255,0.24);
+        }
+
+        .btn-outline-light:hover,
+        .btn-outline-light:focus {
+            color: #ffffff;
+            background-image: linear-gradient(180deg, #61a7ff 0%, #2f80ff 100%);
+            border-color: #78adf7;
+        }
+
+        .form-control {
+            border-radius: 14px;
+            border: 1px solid #d7e2f3;
+            background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.78);
+        }
+
+        .form-control:focus {
+            border-color: #8cb5ef;
+            box-shadow: 0 0 0 0.15rem rgba(47, 128, 255, 0.12);
+        }
     </style>
 </head>
 <body>
     <form runat="server">
-        <%-- Core Web Forms script registrations and bundle references. --%>
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-            </Scripts>
-        </asp:ScriptManager>
-
         <%-- Global navigation links for assignment pages/features. --%>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark site-navbar">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">MiniStore445</a>
+                <div class="brand-shell">
+                    <a class="brand-cart-link" runat="server" href="~/Pages/Cart.aspx" aria-label="View cart">
+                        <span class="brand-cart-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <circle cx="9" cy="19" r="1.7" fill="none" stroke="currentColor" stroke-width="1.9"></circle>
+                                <circle cx="18" cy="19" r="1.7" fill="none" stroke="currentColor" stroke-width="1.9"></circle>
+                                <path d="M3 4h2.3l1.8 9.1c.1.6.6 1 1.2 1H18a1.2 1.2 0 0 0 1.2-.9L21 7.6H7.1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span id="cartBadge" runat="server" class="cart-count-badge"><asp:Label ID="lblCartCount" runat="server" /></span>
+                        </span>
+                    </a>
+                    <a class="navbar-brand brand-text" runat="server" href="~/">MiniStore445</a>
+                </div>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/About.aspx">Summary</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/Pages/Member.aspx">Member</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/Pages/Staff.aspx">Staff</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/Pages/GlobalDemo.aspx">Global</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/Pages/BellaTryIt.aspx">TryIt</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" runat="server" href="~/Pages/AdrianDemo.aspx">Adrian Demo</a>
-                        </li>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav auth-nav">
+                        <asp:LoginView runat="server">
+                            <AnonymousTemplate>
+                                <li class="nav-item">
+                                    <a class="nav-link" runat="server" href="~/Login.aspx">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-outline-light" runat="server" href="~/Pages/SignUp.aspx">Sign Up</a>
+                                </li>
+                            </AnonymousTemplate>
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="Member">
+                                    <ContentTemplate>
+                                        <li class="nav-item">
+                                            <a class="nav-link" runat="server" href="~/Pages/Member.aspx">My Account</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <asp:LoginStatus runat="server" CssClass="login-status-link" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" LogoutText="Logout" OnLoggingOut="LoginStatus_LoggingOut" />
+                                        </li>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                <asp:RoleGroup Roles="Staff">
+                                    <ContentTemplate>
+                                        <li class="nav-item">
+                                            <span class="navbar-text nav-badge">Staff: <%: Context.User.Identity.Name %></span>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" runat="server" href="~/Pages/Staff.aspx">Admin</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <asp:LoginStatus runat="server" CssClass="login-status-link" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" LogoutText="Logout" OnLoggingOut="LoginStatus_LoggingOut" />
+                                        </li>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
+                        </asp:LoginView>
                     </ul>
                 </div>
             </div>
@@ -122,8 +340,6 @@
     </form>
 
     <%-- Bootstrap bundle for responsive navigation and shared UI behavior. --%>
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder>
+    <script src="<%= ResolveUrl("~/Scripts/bootstrap.bundle.min.js") %>"></script>
 </body>
 </html>

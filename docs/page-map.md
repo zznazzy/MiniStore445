@@ -1,13 +1,5 @@
-Page0: Default.aspx (main entry, product browsing, search/filter, featured products)
+Page0: Integrated MiniStoreWeb application
 
-Page1: Bella local component demos (GlobalDemo.aspx, FeaturedProducts control via Default)
-
-Page2: Bella service (BellaStoreService + BellaTryIt.aspx)
-
-Page3: Adrian service (AdrianStoreService + Adrian demo hook)
-
-Page4: Components summary (About.aspx)
-
-Page5: Member page (Member.aspx placeholder)
-
-Page6: Staff page (Staff.aspx placeholder)
+- `Default.aspx` is the main public entry page.
+- `About.aspx`, `Login.aspx`, `Pages/*`, `Controls/*`, `Content/*`, `Scripts/*`, `App_Data/*`, and `bin/*` deploy together in the same application root.
+- `Service1.svc` and `ShippingService.svc` stay at the Page0 root so the integrated TryIt pages can resolve them with app-relative paths.

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Orders>
+  <Order>
+    <Username>bella</Username>
+    <OrderNumber>DEFINITELY-LEGIT-647698</OrderNumber>
+    <CreatedAt>2026-04-26T13:30:49.4050654-07:00</CreatedAt>
+    <PaymentMethod>Face Card</PaymentMethod>
+    <Region>United States</Region>
+    <CouponCode>SAVE10</CouponCode>
+    <CouponDescription>SAVE10 applies a 10% discount.</CouponDescription>
+    <Subtotal>4.99</Subtotal>
+    <DiscountAmount>0.50</DiscountAmount>
+    <DiscountedSubtotal>4.49</DiscountedSubtotal>
+    <ShippingCost>5.00</ShippingCost>
+    <FinalTotal>9.49</FinalTotal>
+    <Items>
+      <Item>
+        <ProductId>1</ProductId>
+        <Name>Notebook</Name>
+        <Category>Stationery</Category>
+        <Description>Clean, minimal notebook for everyday notes, lists, and study sessions.</Description>
+        <Image>https://tinyurl.com/2caj6vzj</Image>
+        <UnitPrice>4.99</UnitPrice>
+        <Quantity>1</Quantity>
+      </Item>
+    </Items>
+  </Order>
+  <Order>
+    <Username>bella</Username>
+    <OrderNumber>TOTALLY-REAL-477594</OrderNumber>
+    <CreatedAt>2026-04-26T13:44:00.0269067-07:00</CreatedAt>
+    <PaymentMethod>Fairy Dust</PaymentMethod>
+    <Region>United States</Region>
+    <CouponCode>VIP20</CouponCode>
+    <CouponDescription>VIP20 applies a 20% discount.</CouponDescription>
+    <Subtotal>85.50</Subtotal>
+    <DiscountAmount>17.10</DiscountAmount>
+    <DiscountedSubtotal>68.40</DiscountedSubtotal>
+    <ShippingCost>0.00</ShippingCost>
+    <FinalTotal>68.40</FinalTotal>
+    <Items>
+      <Item>
+        <ProductId>10</ProductId>
+        <Name>Water Bottle</Name>
+        <Category>Drinkware</Category>
+        <Description>Durable reusable water bottle with a simple everyday design.</Description>
+        <Image>https://tinyurl.com/2b2e39by</Image>
+        <UnitPrice>14.25</UnitPrice>
+        <Quantity>6</Quantity>
+      </Item>
+    </Items>
+  </Order>
+  <Order>
+    <Username>bella</Username>
+    <OrderNumber>VOID-RETAIL-532565</OrderNumber>
+    <CreatedAt>2026-04-26T14:11:59.0462376-07:00</CreatedAt>
+    <PaymentMethod>Infinite Money Glitch</PaymentMethod>
+    <Region>United States</Region>
+    <CouponCode>SAVE10</CouponCode>
+    <CouponDescription>SAVE10 applies a 10% discount.</CouponDescription>
+    <Subtotal>17.24</Subtotal>
+    <DiscountAmount>1.72</DiscountAmount>
+    <DiscountedSubtotal>15.52</DiscountedSubtotal>
+    <ShippingCost>5.00</ShippingCost>
+    <FinalTotal>20.52</FinalTotal>
+    <Items>
+      <Item>
+        <ProductId>3</ProductId>
+        <Name>Sticker Pack</Name>
+        <Category>Accessories</Category>
+        <Description>Decorative sticker pack for laptops, water bottles, and notebooks.</Description>
+        <Image>https://tinyurl.com/24x74fc9</Image>
+        <UnitPrice>2.99</UnitPrice>
+        <Quantity>1</Quantity>
+      </Item>
+      <Item>
+        <ProductId>10</ProductId>
+        <Name>Water Bottle</Name>
+        <Category>Drinkware</Category>
+        <Description>Durable reusable water bottle with a simple everyday design.</Description>
+        <Image>https://tinyurl.com/2b2e39by</Image>
+        <UnitPrice>14.25</UnitPrice>
+        <Quantity>1</Quantity>
+      </Item>
+    </Items>
+  </Order>
+  <Order>
+    <Username>bella</Username>
+    <OrderNumber>ABSOLUTELY-NOT-REAL-876580</OrderNumber>
+    <CreatedAt>2026-04-26T14:25:02.4205299-07:00</CreatedAt>
+    <PaymentMethod>Infinite Money Glitch</PaymentMethod>
+    <Region>International</Region>
+    <CouponCode>SAVE10</CouponCode>
+    <CouponDescription>SAVE10 applies a 10% discount.</CouponDescription>
+    <Subtotal>6.49</Subtotal>
+    <DiscountAmount>0.65</DiscountAmount>
+    <DiscountedSubtotal>5.84</DiscountedSubtotal>
+    <ShippingCost>15.00</ShippingCost>
+    <FinalTotal>20.84</FinalTotal>
+    <Items>
+      <Item>
+        <ProductId>2</ProductId>
+        <Name>Pen Set</Name>
+        <Category>Stationery</Category>
+        <Description>Set of five smooth-writing gel pens in soft assorted colors.</Description>
+        <Image>https://tinyurl.com/23mukyzl</Image>
+        <UnitPrice>6.49</UnitPrice>
+        <Quantity>1</Quantity>
+      </Item>
+    </Items>
+  </Order>
+</Orders>

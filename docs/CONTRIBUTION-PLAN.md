@@ -1,211 +1,63 @@
-
 # MiniStore445 Contribution Plan
 
 ## Team
 
-* Bella Rayner
-* Adrian Simon
+- Bella Rayner
+- Adrian
 
-## Project Overview
+## Current Contribution Split
 
-MiniStore445 is a lightweight ASP.NET Web Forms application that simulates a small online store.
+- Bella Rayner: 55%
+- Adrian: 45%
 
-Assignment 5 focuses on:
+## Integrated Application Summary
 
-* public-facing functionality
-* component implementation
-* service integration
+MiniStore445 is an ASP.NET Web Forms storefront application with:
 
-Assignment 6 builds on this with:
+- a public landing page and XML-backed product browsing
+- forms authentication for members and staff
+- self-enrollment with captcha for members
+- protected member and staff pages
+- session cart, checkout, order confirmation, and previous-order history
+- Bella and Adrian service/demo pages
 
-* authentication
-* protected pages
-* full system integration
+## Bella-Owned Components
 
----
+- `MiniStoreWeb/Default.aspx` and storefront UI flow
+- `MiniStoreWeb/Controls/FeaturedProducts.ascx`
+- `MiniStoreWeb/Global.asax`
+- `MiniStoreWeb/Pages/GlobalDemo.aspx`
+- `BellaStoreService/`
+- `MiniStoreWeb/Pages/BellaTryIt.aspx`
+- `MiniStoreWeb/About.aspx`
+- `MiniStoreWeb/Login.aspx`
+- `MiniStoreWeb/Pages/SignUp.aspx`
+- `MiniStoreWeb/Pages/Member.aspx`
+- `MiniStoreWeb/Pages/Staff.aspx`
+- `MiniStoreWeb/Pages/Cart.aspx`
+- `MiniStoreWeb/Pages/Checkout.aspx`
+- `MiniStoreWeb/Pages/OrderConfirmation.aspx`
+- `MiniStoreWeb/Pages/OrderDetails.aspx`
+- `MiniStoreWeb/App_Data/Products.xml`
+- `MiniStoreWeb/App_Data/Member.xml`
+- `MiniStoreWeb/App_Data/Staff.xml`
+- `MiniStoreWeb/App_Data/Orders.xml`
 
-## Responsibilities
+## Adrian-Owned Components
 
-### Bella
+- `AdrianHashLib/`
+- `AdrianStoreService/`
+- `MiniStoreWeb/Pages/AdrianDemo.aspx`
+- `MiniStoreWeb/Helpers/CartState.cs`
 
-* Core web app structure and UI
-* Featured products pipeline (XML → UI)
-* Global state handling (`Global.asax`)
-* Bella web service + TryIt page
-* Navigation + baseline UX
+## Adrian Follow-Up Items
 
-### Adrian
+- keep the standalone deployed `ShippingService.svc` endpoint compatible with the shared `CalculateShipping(decimal subtotal, string region)` contract
+- verify the Adrian demo against the final remote endpoint after deployment
+- extend Adrian-owned service behavior only through the existing shared client path so the integrated site stays stable
 
-* Supporting backend components
-* Security/utilities (DLL)
-* Session/cookie behavior
-* Adrian web service + demo surface
-* Integration + extension work
+## Shared Integration Notes
 
----
-
-## Project Structure
-
-```text
-MiniStore445/
-  README.md
-  contribution-plan.md
-  .gitignore
-  MiniStore445.sln
-  src/
-    MiniStoreWeb/
-      Default.aspx
-      Default.aspx.cs
-      Web.config
-      Global.asax
-      App_Data/
-        Products.xml
-        Member.xml
-        Staff.xml
-      Controls/
-        FeaturedProducts.ascx
-        FeaturedProducts.ascx.cs
-      Pages/
-        BellaTryIt.aspx
-        BellaTryIt.aspx.cs
-        GlobalDemo.aspx
-        GlobalDemo.aspx.cs
-        Member.aspx
-        Member.aspx.cs
-        Staff.aspx
-        Staff.aspx.cs
-    BellaStoreService/
-    AdrianStoreService/
-    AdrianHashLib/
-  docs/
-  submission/
-```
-
----
-
-## Current State (Post–Bella A5)
-
-The application currently includes:
-
-* functional landing page (`Default.aspx`)
-* product display via XML-backed user control
-* product images + basic styling
-* search and category filtering
-* working Global.asax demo page
-* Bella service + TryIt page
-* navigation across all pages
-* placeholder Member/Staff pages
-* components summary page
-
-This is considered the **baseline build**.
-
----
-
-## Adrian Scope (Assignment 5)
-
-Adrian’s work should introduce:
-
-### DLL (required)
-
-* hashing or encryption/decryption helper
-* intended for later use in authentication
-
-### Session / Cookie Logic
-
-* lightweight state usage inside `MiniStoreWeb`
-* examples:
-
-  * cart count
-  * remembered user
-  * recent product tracking
-
-### Web Service
-
-* independent service with clear functionality
-  (shipping, tax, filtering, etc.)
-
-### Demo Surface
-
-* visible way to interact with the above
-  (page, button, or integration point)
-  
-### Other
-
-* basic cart system (session-based)
-* additional UI polish
-* improved layout or styling consistency
-* WebStrar deployment setup
-* small UX improvements that don’t break structure
-
----
-
-## Ownership
-
-### Bella-owned
-
-* `MiniStoreWeb/Default.aspx`
-* `Global.asax`
-* `FeaturedProducts` control
-* Bella service + TryIt
-* base UI + navigation
-
-### Adrian-owned
-
-* `AdrianHashLib/`
-* `AdrianStoreService/`
-* session/cookie logic
-* any cart implementation
-
-### Shared (Assignment 6)
-
-* authentication flow
-* Member/Staff functionality
-* XML account handling
-* deployment packaging
-* final integration
-
----
-
-## Workflow
-
-* work in separate branches
-* keep `main` stable and buildable
-* merge only when features are working
-* avoid overlapping edits unless coordinated
-
-Suggested branches:
-
-* `bella-core`
-* `adrian-services`
-
----
-
-## Constraints
-
-* no hardcoded deployment URLs
-* use relative paths
-* avoid breaking navigation
-* keep project structure intact
-
----
-
-## Assignment 5 Target
-
-A working system where:
-
-* core pages load without errors
-* Bella’s components are complete and testable
-* Adrian’s components are independently functional
-* all demo paths are visible and usable
-
----
-
-## Assignment 6 Direction
-
-Next phase will introduce:
-
-* authentication (Forms Auth)
-* role separation (Member vs Staff)
-* protected routes
-* persistent data via XML
-* full system integration
+- password hashing is routed through `MiniStoreWeb/Helpers/PasswordSecurity.cs`, which wraps `AdrianHashLib`
+- checkout pricing uses Bella discount logic and Adrian shipping logic together
+- WebStrar deployment is staged as a single integrated `Page0` application

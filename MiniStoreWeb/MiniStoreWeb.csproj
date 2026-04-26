@@ -103,8 +103,10 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="App_Data\Member.xml" />
+    <Content Include="App_Data\Orders.xml" />
     <Content Include="App_Data\Products.xml" />
     <Content Include="App_Data\Staff.xml" />
+    <Content Include="CaptchaImage.ashx" />
     <None Include="Connected Services\AdrianServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -132,27 +134,25 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\cart-favicon.svg" />
     <Content Include="Content\Site.css" />
     <Content Include="Controls\FeaturedProducts.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\bookmark.png" />
-    <Content Include="Images\desklamp.png" />
-    <Content Include="Images\highlighters.png" />
-    <Content Include="Images\hoodie.png" />
-    <Content Include="Images\keychain.png" />
-    <Content Include="Images\mug.png" />
-    <Content Include="Images\notebook.png" />
-    <Content Include="Images\pens.png" />
-    <Content Include="Images\phonestand.png" />
-    <Content Include="Images\stickers.png" />
-    <Content Include="Images\totebag.png" />
-    <Content Include="Images\waterbottle.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="Service1.svc" />
+    <Content Include="ShippingService.svc" />
     <Content Include="Pages\AdrianDemo.aspx" />
     <Content Include="Pages\BellaTryIt.aspx" />
+    <Content Include="Pages\Cart.aspx" />
+    <Content Include="Pages\Checkout.aspx" />
     <Content Include="Pages\GlobalDemo.aspx" />
     <Content Include="Pages\Member.aspx" />
+    <Content Include="Pages\Other.aspx" />
+    <Content Include="Pages\OrderDetails.aspx" />
+    <Content Include="Pages\OrderConfirmation.aspx" />
+    <Content Include="Pages\SignUp.aspx" />
     <Content Include="Pages\Staff.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -224,7 +224,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="CaptchaImage.ashx.cs">
+      <DependentUpon>CaptchaImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AccountRepository.cs" />
+    <Compile Include="Helpers\AccountService.cs" />
+    <Compile Include="Helpers\AuthenticationHelper.cs" />
+    <Compile Include="Helpers\CaptchaManager.cs" />
     <Compile Include="Helpers\CartState.cs" />
+    <Compile Include="Helpers\CheckoutPricingService.cs" />
+    <Compile Include="Helpers\FavoritesState.cs" />
+    <Compile Include="Helpers\FakeOrderHistoryRepository.cs" />
+    <Compile Include="Helpers\FakeOrderReceiptState.cs" />
+    <Compile Include="Helpers\ImageUrlHelper.cs" />
+    <Compile Include="Helpers\PasswordSecurity.cs" />
+    <Compile Include="Helpers\ProductRepository.cs" />
+    <Compile Include="Helpers\ServiceClientFactory.cs" />
+    <Compile Include="Helpers\ShoppingCartService.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CheckoutPricingSummary.cs" />
+    <Compile Include="Models\FakeOrderReceipt.cs" />
+    <Compile Include="Models\ProductRecord.cs" />
+    <Compile Include="Models\StoreCartItemView.cs" />
+    <Compile Include="Models\StoreCartLine.cs" />
+    <Compile Include="Models\StoreUser.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -274,6 +303,20 @@
     <Compile Include="Pages\BellaTryIt.aspx.designer.cs">
       <DependentUpon>BellaTryIt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GlobalDemo.aspx.cs">
       <DependentUpon>GlobalDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -287,6 +330,34 @@
     </Compile>
     <Compile Include="Pages\Member.aspx.designer.cs">
       <DependentUpon>Member.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Other.aspx.cs">
+      <DependentUpon>Other.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Other.aspx.designer.cs">
+      <DependentUpon>Other.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderConfirmation.aspx.cs">
+      <DependentUpon>OrderConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\OrderConfirmation.aspx.designer.cs">
+      <DependentUpon>OrderConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Staff.aspx.cs">
       <DependentUpon>Staff.aspx</DependentUpon>
@@ -337,9 +408,17 @@
     <WCFMetadataStorage Include="Connected Services\BellaServiceReference\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdrianStoreService\AdrianStoreService.csproj">
+      <Project>{05756DF3-F7E1-4673-B45C-AE3EFE50BD40}</Project>
+      <Name>AdrianStoreService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdrianHashLib\AdrianHashLib.csproj">
       <Project>{64FB879E-C64F-438D-82AD-D4C05ABE4B8C}</Project>
       <Name>AdrianHashLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BellaStoreService\BellaStoreService.csproj">
+      <Project>{DB2040A8-FDA3-4873-9E71-182105327DFB}</Project>
+      <Name>BellaStoreService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using MiniStoreWeb.BellaServiceReference;
+using MiniStoreWeb.Helpers;
 
 namespace MiniStoreWeb.Pages
 {
@@ -25,7 +26,7 @@ namespace MiniStoreWeb.Pages
 
             try
             {
-                client = new Service1Client();
+                client = ServiceClientFactory.CreateBellaServiceClient();
 
                 // Call service operations using UI-selected coupon + validated subtotal.
                 string couponCode = ddlCouponCode.SelectedValue;

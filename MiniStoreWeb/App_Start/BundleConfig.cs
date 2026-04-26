@@ -14,6 +14,11 @@ namespace MiniStoreWeb
         {
             RegisterJQueryScriptManager();
 
+            // Shared site styles are registered in code so deployment does not rely on Bundle.config.
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                            "~/Content/bootstrap.css",
+                            "~/Content/Site.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
                             "~/Scripts/WebForms/WebUIValidation.js",
@@ -35,6 +40,9 @@ namespace MiniStoreWeb
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                            "~/Scripts/bootstrap.bundle.min.js"));
         }
 
         public static void RegisterJQueryScriptManager()
