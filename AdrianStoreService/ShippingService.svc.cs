@@ -10,12 +10,22 @@ namespace AdrianStoreService
             }
 
             decimal baseRate = 5m;
-            if (!string.IsNullOrEmpty(region) && region.Trim().ToUpperInvariant() != "US")
-            {
-                baseRate += 10m;
-            }
+            string normalized = (region ?? string.Empty).Trim().ToUpperInvariant();
 
-            return baseRate;
+            switch (normalized)
+            {
+                case "US":
+                case "DOMESTIC":
+                    return baseRate;
+                case "CA":
+                case "CANADA":
+                    return baseRate + 5m;
+                case "INTL":
+                case "INTERNATIONAL":
+                    return baseRate + 10m;
+                default:
+                    return baseRate + 10m;
+            }
         }
     }
 }
