@@ -1,0 +1,16 @@
+hey adrian,
+
+i went ahead and integrated a lot of the assignment 6 stuff, so the app is pretty far along now. i also updated the summary table and kept your components represented there based on what is currently in the code.
+
+the main things left on your end are mostly around your service and deployment side:
+
+- finish the real WebStrar deployment for AdrianStoreService
+- keep the endpoint as ShippingService.svc if possible, since the integrated app is already wired to that
+- keep the service contract the same: CalculateShipping(decimal subtotal, string region)
+- test that the deployed service works both directly and through the integrated site's AdrianDemo.aspx page
+- if you want to improve the shipping logic, that is totally fine, just make sure it stays compatible with the current checkout and demo flow
+- if anything about the endpoint path, parameter shape, or behavior changes, just send it to me and i can update the app side if needed
+
+i already added a visible Adrian demo surface, the DLL hash tester, the shared client hookup, and the summary-table entries for your parts, so you should not need to rebuild all of that from scratch.
+
+if you want, i can also send you the exact files and pages where your service is being used so it is easier to test against the integrated app.

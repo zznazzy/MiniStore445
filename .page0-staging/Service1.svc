@@ -1,0 +1,1 @@
+<%@ ServiceHost Language="C#" Service="BellaStoreService.Service1" %>
